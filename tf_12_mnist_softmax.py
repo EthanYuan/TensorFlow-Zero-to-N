@@ -12,9 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ==============================================================================
+
 """A very simple MNIST classifier.
 See extensive documentation at
-http://tensorflow.org/tutorials/mnist/beginners/index.md
+https://www.tensorflow.org/get_started/mnist/beginners
 """
 from __future__ import absolute_import
 from __future__ import division
@@ -62,27 +63,17 @@ def main(_):
     for _ in range(1000):
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-        if (_ == 999):
-            curr_W, curr_b, curr_y = sess.run(
-                [W, b, tf.argmax(y, 1)],
-                feed_dict={x: batch_xs, y_: batch_ys})
-            print("W: %s b: %s y: %s" % (curr_W, curr_b, curr_y))
 
     # Test trained model
     correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-    print(
-        sess.run(
-            accuracy, feed_dict={x: mnist.test.images,
-                                 y_: mnist.test.labels}))
+    print(sess.run(accuracy, feed_dict={x: mnist.test.images,
+                                        y_: mnist.test.labels}))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        '--data_dir',
-        type=str,
-        default='\MNIST',
-        help='Directory for storing input data')
+    parser.add_argument('--data_dir', type=str, default='/MNIST/',
+                        help='Directory for storing input data')
     FLAGS, unparsed = parser.parse_known_args()
     tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)
