@@ -1,1 +1,3 @@
 MNIST/logs/*
+iris/iris_model/*
+TF1_1/MNIST/*
