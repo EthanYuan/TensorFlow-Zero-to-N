@@ -10,8 +10,8 @@ import tensorflow as tf
 tf.logging.set_verbosity(tf.logging.ERROR)
 
 # Data sets
-IRIS_TRAINING = os.path.join(os.path.dirname(__file__), "iris/iris_training.csv")
-IRIS_TEST = os.path.join(os.path.dirname(__file__), "iris/iris_test.csv")
+IRIS_TRAINING = os.path.join(os.path.dirname(__file__), "../iris/iris_training.csv")
+IRIS_TEST = os.path.join(os.path.dirname(__file__), "../iris/iris_test.csv")
 
 
 def main(unused_argv):
@@ -34,7 +34,7 @@ def main(unused_argv):
         feature_columns=feature_columns,
         hidden_units=[10, 20, 10],
         n_classes=3,
-        model_dir="iris/iris_model")
+        model_dir="../iris/iris_model")
 
     # Fit model.
     classifier.fit(x=training_set.data,
