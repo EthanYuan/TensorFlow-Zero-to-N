@@ -94,6 +94,8 @@ def main(_):
 
     # Test trained model
     print("best: %s" % best)
+    train_writer.close()
+    validation_writer.close()
 
 
 if __name__ == '__main__':
