@@ -73,7 +73,7 @@ def main(_):
             accuracy,
             feed_dict={x: mnist.validation.images,
                        y_: mnist.validation.labels})
-       
+
         sum_accuracy_train = sess.run(
             scalar_accuracy,
             feed_dict={x: mnist.train.images,
