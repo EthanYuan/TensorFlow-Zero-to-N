@@ -38,9 +38,9 @@ def main(_):
 
     scalar_accuracy = tf.summary.scalar('accuracy', accuracy)
     train_writer = tf.summary.FileWriter(
-        'MNIST/logs/tf16_reg/train', sess.graph)
+        'MNIST/logs/tf16/train', sess.graph)
     validation_writer = tf.summary.FileWriter(
-        'MNIST/logs/tf16_reg/validation')
+        'MNIST/logs/tf16/validation')
 
     # Train
     best = 0
@@ -58,7 +58,7 @@ def main(_):
             accuracy,
             feed_dict={x: mnist.validation.images,
                        y_: mnist.validation.labels})
-                       
+
         sum_accuracy_train = sess.run(
             scalar_accuracy,
             feed_dict={x: mnist.train.images,
@@ -73,9 +73,8 @@ def main(_):
         validation_writer.add_summary(sum_accuracy_validation, epoch)
 
         print("Epoch %s: train: %s validation: %s"
-              % (epoch, accuracy_currut_train / 500.0,
-                 accuracy_currut_validation / 100.0))
-        best = (best / 100.0, accuracy_currut_validation / 100.0)[
+              % (epoch, accuracy_currut_train, accuracy_currut_validation))
+        best = (best, accuracy_currut_validation)[
             best <= accuracy_currut_validation]
 
     # Test trained model
