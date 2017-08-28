@@ -34,7 +34,13 @@ def main(_):
     tf.global_variables_initializer().run()
 
     correct_prediction = tf.equal(tf.argmax(a_3, 1), tf.argmax(y_, 1))
-    accuracy = tf.reduce_sum(tf.cast(correct_prediction, tf.float32))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+
+    scalar_accuracy = tf.summary.scalar('accuracy', accuracy)
+    train_writer = tf.summary.FileWriter(
+        'MNIST/logs/tf16_reg/train', sess.graph)
+    validation_writer = tf.summary.FileWriter(
+        'MNIST/logs/tf16_reg/validation')
 
     # Train
     best = 0
@@ -52,6 +58,19 @@ def main(_):
             accuracy,
             feed_dict={x: mnist.validation.images,
                        y_: mnist.validation.labels})
+                       
+        sum_accuracy_train = sess.run(
+            scalar_accuracy,
+            feed_dict={x: mnist.train.images,
+                       y_: mnist.train.labels})
+
+        sum_accuracy_validation = sess.run(
+            scalar_accuracy,
+            feed_dict={x: mnist.validation.images,
+                       y_: mnist.validation.labels})
+
+        train_writer.add_summary(sum_accuracy_train, epoch)
+        validation_writer.add_summary(sum_accuracy_validation, epoch)
 
         print("Epoch %s: train: %s validation: %s"
               % (epoch, accuracy_currut_train / 500.0,
