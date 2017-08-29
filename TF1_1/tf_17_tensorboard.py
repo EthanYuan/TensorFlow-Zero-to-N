@@ -51,8 +51,8 @@ def main(_):
     correct_prediction = tf.equal(tf.argmax(a_3, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
-    tf.summary.scalar('accuracy', accuracy)
-    tf.summary.scalar('loss', loss)
+    accuracy_scalar = tf.summary.scalar('accuracy', accuracy)
+    loss_scalar = tf.summary.scalar('loss', loss)
     merged = tf.summary.merge_all()
     train_writer = tf.summary.FileWriter(
         'MNIST/logs/tf17/train', sess.graph)
@@ -72,13 +72,16 @@ def main(_):
             feed_dict={x: mnist.train.images,
                        y_: mnist.train.labels})
 
-        sum_accuracy_validation, accuracy_currut_validation = sess.run(
-            [merged, accuracy],
+        (sum_accuracy_validation,
+         sum_loss_validation,
+         accuracy_currut_validation) = sess.run(
+            [accuracy_scalar, loss_scalar, accuracy],
             feed_dict={x: mnist.validation.images,
                        y_: mnist.validation.labels})
 
         train_writer.add_summary(summary, epoch)
         validation_writer.add_summary(sum_accuracy_validation, epoch)
+        validation_writer.add_summary(sum_loss_validation, epoch)
 
         print("Epoch %s: train: %s validation: %s"
               % (epoch, accuracy_currut_train, accuracy_currut_validation))
