@@ -1,3 +1,4 @@
 iris/iris_model/*
 TF1_1/MNIST/*
 TF1_3/MNIST/*
+TF1_3/Fashion-MNIST/*
