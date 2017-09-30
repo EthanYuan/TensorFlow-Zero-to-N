@@ -48,7 +48,6 @@ def main(_):
         for _ in range(5000):
             batch_xs, batch_ys = mnist.train.next_batch(10)
             sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-        sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
         # Test trained model
         accuracy_currut_train = sess.run(accuracy,
                                          feed_dict={x: mnist.train.images,

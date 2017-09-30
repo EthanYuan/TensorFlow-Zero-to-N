@@ -55,13 +55,30 @@ def main(_):
     correct_prediction = tf.equal(tf.argmax(a_5, 1), tf.argmax(y_, 1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
+    grad_1_hidden_layer = tf.gradients(xs=[b_2], ys=loss)
+    grad_2_hidden_layer = tf.gradients(xs=[b_3], ys=loss)
+    grad_3_hidden_layer = tf.gradients(xs=[b_4], ys=loss)
+
+    grad_value_1 = tf.norm(grad_1_hidden_layer)
+    grad_value_2 = tf.norm(grad_2_hidden_layer)
+    grad_value_3 = tf.norm(grad_3_hidden_layer)
+
+    grad_value_1_scalar = tf.summary.scalar('grad_value_1', grad_value_1)
+    grad_value_2_scalar = tf.summary.scalar('grad_value_2', grad_value_2)
+    grad_value_3_scalar = tf.summary.scalar('grad_value_3', grad_value_3)
+
+    merged = tf.summary.merge_all()
+    train_writer = tf.summary.FileWriter(
+        'MNIST/logs/tf2-1/train', sess.graph)
+
     # Train
     best = 0
     for epoch in range(30):
         for _ in range(5000):
             batch_xs, batch_ys = mnist.train.next_batch(10)
             sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
-        sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
+        summary = sess.run(merged, feed_dict={x: batch_xs, y_: batch_ys})
+        train_writer.add_summary(summary, epoch)
         # Test trained model
         accuracy_currut_train = sess.run(
             accuracy,
@@ -80,6 +97,7 @@ def main(_):
 
     # Test trained model
     print("best: %s" % best)
+    train_writer.close()
 
 
 if __name__ == '__main__':
