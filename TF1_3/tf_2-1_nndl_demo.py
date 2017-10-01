@@ -73,9 +73,9 @@ def main(_):
 
     # Train
     best = 0
-    for epoch in range(30):
-        for _ in range(5000):
-            batch_xs, batch_ys = mnist.train.next_batch(10)
+    for epoch in range(200):
+        for _ in range(1):
+            batch_xs, batch_ys = mnist.train.next_batch(1000, shuffle=True)
             sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})
         summary = sess.run(merged, feed_dict={x: batch_xs, y_: batch_ys})
         train_writer.add_summary(summary, epoch)
