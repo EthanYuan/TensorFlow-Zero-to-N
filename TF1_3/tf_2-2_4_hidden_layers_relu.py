@@ -33,7 +33,7 @@ def main(_):
     z_5 = tf.matmul(a_4, W_5) + b_5
     a_5 = tf.nn.relu(z_5)
 
-    W_6 = tf.Variable(tf.random_normal([100, 10]) / tf.sqrt(100.0/2))
+    W_6 = tf.Variable(tf.random_normal([100, 10]) / tf.sqrt(100.0))
     b_6 = tf.Variable(tf.random_normal([10]))
     z_6 = tf.matmul(a_5, W_6) + b_6
     a_6 = tf.sigmoid(z_6)

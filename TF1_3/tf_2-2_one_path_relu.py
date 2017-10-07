@@ -13,25 +13,25 @@ def main(_):
 
     # Create the model
     x = tf.placeholder(tf.float32, [None, 784])
-    W_2 = tf.Variable(tf.random_normal([784, 1]) / tf.sqrt(784.0))
+    W_2 = tf.Variable(tf.random_normal([784, 1]) / tf.sqrt(784.0/2))
     b_2 = tf.Variable(tf.random_normal([1]))
     z_2 = tf.matmul(x, W_2) + b_2
-    a_2 = tf.sigmoid(z_2)
+    a_2 = tf.nn.relu(z_2)
 
-    W_3 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0))
+    W_3 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0/2))
     b_3 = tf.Variable(tf.random_normal([1]))
     z_3 = tf.matmul(a_2, W_3) + b_3
-    a_3 = tf.sigmoid(z_3)
+    a_3 = tf.nn.relu(z_3)
 
-    W_4 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0))
+    W_4 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0/2))
     b_4 = tf.Variable(tf.random_normal([1]))
     z_4 = tf.matmul(a_3, W_4) + b_4
-    a_4 = tf.sigmoid(z_4)
+    a_4 = tf.nn.relu(z_4)
 
-    W_5 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0))
+    W_5 = tf.Variable(tf.random_normal([1, 1]) / tf.sqrt(1.0/2))
     b_5 = tf.Variable(tf.random_normal([1]))
     z_5 = tf.matmul(a_4, W_5) + b_5
-    a_5 = tf.sigmoid(z_5)
+    a_5 = tf.nn.relu(z_5)
 
     W_6 = tf.Variable(tf.random_normal([1, 10]) / tf.sqrt(1.0))
     b_6 = tf.Variable(tf.random_normal([10]))
@@ -78,7 +78,7 @@ def main(_):
 
     merged = tf.summary.merge_all()
     train_writer = tf.summary.FileWriter(
-        'MNIST/logs/tf2-2/one-path', sess.graph)
+        'MNIST/logs/tf2-2/one-path-relu', sess.graph)
 
     # Train
     best = 0
