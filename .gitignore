@@ -2,3 +2,4 @@ iris/iris_model/*
 TF1_1/MNIST/*
 TF1_3/MNIST/*
 TF1_3/Fashion-MNIST/*
+TF1_3/tf_2-3_tf_name_scope.py
