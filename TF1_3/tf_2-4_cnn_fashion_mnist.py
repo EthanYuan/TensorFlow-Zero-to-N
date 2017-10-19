@@ -1,6 +1,5 @@
 import argparse
 import sys
-import tempfile
 from tensorflow.examples.tutorials.mnist import input_data
 import tensorflow as tf
 
@@ -108,7 +107,7 @@ def main(_):
     with tf.name_scope('loss'):
         cross_entropy = tf.nn.softmax_cross_entropy_with_logits(labels=y_,
                                                                 logits=y_conv)
-    '''cross_entropy = tf.reduce_mean(cross_entropy)'''
+        cross_entropy = tf.reduce_mean(cross_entropy)
 
     with tf.name_scope('adam_optimizer'):
         train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
@@ -116,18 +115,12 @@ def main(_):
     with tf.name_scope('accuracy'):
         correct_prediction = tf.equal(tf.argmax(y_conv, 1), tf.argmax(y_, 1))
         correct_prediction = tf.cast(correct_prediction, tf.float32)
-    accuracy = tf.reduce_mean(correct_prediction)
-
-    '''
-    graph_location = tempfile.mkdtemp()
-    print('Saving graph to: %s' % graph_location)
-    train_writer = tf.summary.FileWriter(graph_location)
-    train_writer.add_graph(tf.get_default_graph())'''
+        accuracy = tf.reduce_mean(correct_prediction)
 
     best = 0
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        for epoch in range(30):
+        for epoch in range(60):
             for _ in range(1000):
                 batch = mnist.train.next_batch(50)
                 train_step.run(
@@ -138,8 +131,7 @@ def main(_):
                     y_: mnist.validation.labels,
                     keep_prob: 1.0})
             print('epoch %d, validation accuracy %s' % (
-                epoch,
-                accuracy_validation))
+                epoch, accuracy_validation))
             best = (best, accuracy_validation)[
                 best <= accuracy_validation]
 
