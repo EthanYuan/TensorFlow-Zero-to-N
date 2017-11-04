@@ -1,4 +1,4 @@
-# Hello，TensorFlow！
+# 1 Hello，TensorFlow！
 
 在学习任何新的编程语言时，我们都会在第一时间完成Hello World，以宣告自己开发环境的完美搭建。TensorFlow也不例外。TensorFlow充分考虑了各种软/硬件平台上的安装，本篇记录了在我的笔电Win 10环境下**TensorFlow 1.1**的安装（在国内这应该是最常见的一种个人环境）并打印出“Hello TensorFlow !”的过程。
 
