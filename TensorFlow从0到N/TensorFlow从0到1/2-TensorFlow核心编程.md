@@ -1,6 +1,6 @@
 # 2 TensorFlow核心编程
 
-上一篇[1 Hello, TensorFlow!](./ML-2017-1-Hello%2CTensorFlow!.md)中的代码还未解释，本篇介绍TensorFlow核心编程的几个基本概念后，那些Python代码就很容易理解了。
+上一篇[1 Hello, TensorFlow!](./1-Hello%2CTensorFlow!.md)中的代码还未解释，本篇介绍TensorFlow核心编程的几个基本概念后，那些Python代码就很容易理解了。
 
 与TensorFlow核心（Core）相对的是TensorFlow提供的高级API。后者是基于前者构建的。对于机器学习研究以及需要对编程、模型完全控制的场景，TensorFlow核心编程是首选。如果为了快速、便捷的执行一个模型训练任务，那么高级的API更容易使用，输出也更具一致性。作为研究学习，显然需要从更基础的TensorFlow核心编程开始。
 

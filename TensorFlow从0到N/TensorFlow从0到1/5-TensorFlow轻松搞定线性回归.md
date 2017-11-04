@@ -1,6 +1,6 @@
 # 5 TF轻松搞定线性回归
 
-[上一篇 4 第一个机器学习问题 ](./ML-2017-4-第一个机器学习问题.md)其实是一个线性回归问题（Linear Regression），呈现了用数据来训练模型的具体方式。本篇从平行世界返回，利用TensorFlow，重新解决一遍该问题。
+[上一篇 4 第一个机器学习问题 ](./4-第一个机器学习问题.md)其实是一个线性回归问题（Linear Regression），呈现了用数据来训练模型的具体方式。本篇从平行世界返回，利用TensorFlow，重新解决一遍该问题。
 
 TensorFlow的API有低级和高级之分。
 
@@ -60,7 +60,7 @@ TensorFlow的计算分为两个阶段：
 
 [下载 tf_5_manual.py](https://github.com/EthanYuan/TensorFlow)
 
-上面的python代码利用了在[2 TensorFlow内核基础 ](./ML-2017-2-TensorFlow核心编程.md)介绍的基本API实现了“第一个机器学习问题”。代码通过一步步构造计算图，最后得到了loss节点。loss即[4 第一个机器学习问题](./ML-2017-4-第一个机器学习问题.md)中定义过的损失函数，这里再次给出其定义：
+上面的python代码利用了在[2 TensorFlow内核基础 ](./2-TensorFlow核心编程.md)介绍的基本API实现了“第一个机器学习问题”。代码通过一步步构造计算图，最后得到了loss节点。loss即[4 第一个机器学习问题](./4-第一个机器学习问题.md)中定义过的损失函数，这里再次给出其定义：
 
 ![损失函数](img/2017-4-cost.jpg)
 
