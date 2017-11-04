@@ -1,4 +1,4 @@
-# 升级手记：TensorFlow 1.3.0
+# 18 升级手记：TensorFlow 1.3.0
 
 《TensorFlow从0到1》写到现在，TensorFlow的版本也从当时的1.1.0迭代到了8月初发布的[1.3.0](https://github.com/tensorflow/tensorflow/blob/r1.3/RELEASE.md)。可以预见在未来很长一段时间里，它仍会持续快速的迭代更新。
 

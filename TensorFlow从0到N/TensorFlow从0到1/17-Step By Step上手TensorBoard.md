@@ -1,4 +1,4 @@
-# Step By Step上手TensorBoard
+# 17 Step By Step上手TensorBoard
 
 上一篇[16 L2正则化对抗“过拟合”](./16-L2正则化对抗“过拟合”.md)提到，为了检测训练过程中发生的过拟合，需要记录每次迭代（甚至每次step）模型在训练集和验证集上的识别精度。其实，为了能更好的调试和优化TensorFlow程序，日志（logging）和监测（monitoring）需求远不止“识别精度”。在训练过程中不断变化的“损失”、“更新速率”（step/sec）甚至“概率分布”等信息，都是帮助我们深入理解模型与训练的关键信息。
 
@@ -75,7 +75,7 @@ summary节点与其他节点一样，依靠Session运行才会有输出。如果
 
 ![TensorBoard Server](img/2017-17-server.jpg)
 
-当TensorBoard服务器顺利启动后，即可打开浏览器输入地址：http://127.0.0.1:6006/查看。注意在Windows环境下输入http://0.0.0.0:6006/无效。下图就是TensorBoard绘制出的accuracy和loss的图形：
+当TensorBoard服务器顺利启动后，即可打开浏览器输入地址：http://127.0.0.1:6006/ 查看。注意在Windows环境下输入http://0.0.0.0:6006/无效。下图就是TensorBoard绘制出的accuracy和loss的图形：
 
 ![TensorBoard](img/2017-17-tensorboard.jpg)
 
