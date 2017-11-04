@@ -75,7 +75,7 @@ summary节点与其他节点一样，依靠Session运行才会有输出。如果
 
 ![TensorBoard Server](img/2017-17-server.jpg)
 
-当TensorBoard服务器顺利启动后，即可打开浏览器输入地址：http://127.0.0.1:6006/ 查看。注意在Windows环境下输入http://0.0.0.0:6006/无效。下图就是TensorBoard绘制出的accuracy和loss的图形：
+当TensorBoard服务器顺利启动后，即可打开浏览器输入地址：http://127.0.0.1:6006/ 查看。注意在Windows环境下输入http://0.0.0.0:6006/ 无效。下图就是TensorBoard绘制出的accuracy和loss的图形：
 
 ![TensorBoard](img/2017-17-tensorboard.jpg)
 
