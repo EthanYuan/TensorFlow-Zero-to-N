@@ -105,7 +105,7 @@ TensorFlow的name scope有什么作用呢？主要是两点：
 - **tf.Variable()返回的a1、a2、a3等等Python变量，是对节点的引用，与节点的name属性没有半毛钱关系**；
 - **Node的name属性是计算图中节点的标识，Python层面的节点引用变量则不是，后者可以随时更改为对其他节点的引用**；
 - **如果在Python层面失去了对某一节点的引用，节点并没有消失，也不会被自动回收，找回方法见玩具代码倒数第2行**；
-- 有关TensorFlow计算图（Graph）基本构建单元Node的概念，请回顾《[TensorFlow从0到1 - 2 - TensorFlow核心编程](http://www.jianshu.com/p/28df688b2778)》。
+- 有关TensorFlow计算图（Graph）基本构建单元Node的概念，请回顾《[TensorFlow从0到1 - 2 - TensorFlow核心编程](https://github.com/EthanYuan/TensorFlow-Zero-to-N/blob/master/TensorFlow%E4%BB%8E0%E5%88%B0N/TensorFlow%E4%BB%8E0%E5%88%B01/2-TensorFlow%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B.md)》。
 
 ## CNN架构
 
