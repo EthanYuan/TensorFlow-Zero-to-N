@@ -114,6 +114,12 @@
 - Inception module；
 - 完全移除了全连接层，用全局平均池化层来取代，全连接层占据了VGG和AlexNet 90%的参数量；
 
+### Inception Family
+
+- Inception V2，提出了BN，可以去除Dropout、LRN，传统的DNN在每一层的输入的分布都在变化，导致训练变得困难，我们只能使用一个很小的学习率解决这个问题。
+- Inception V3，非对称的卷积结构拆分，优化了Inception Module的结构；
+- Inception V4，结合了微软的ResNet；
+
 ## ResNet（2015）
 
 ### 基本信息
