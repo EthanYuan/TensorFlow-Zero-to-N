@@ -138,11 +138,11 @@ def main(_):
                     y_: mnist.validation.labels,
                     keep_prob: 1.0})
             print('epoch %d, validation accuracy %s' % (
-                epoch, accuracy_validation))
+                epoch + 1, accuracy_validation))
             best = (best, accuracy_validation)[
                 best <= accuracy_validation]
 
-            saver.save(sess, graph_location + '/model.ckpt', epoch * _)
+            saver.save(sess, 'MNIST/logs/tf2-6/checkpoint/model.ckpt', epoch + 1)
 
     # Test trained model
     print("best: %s" % best)
