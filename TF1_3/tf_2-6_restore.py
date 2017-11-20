@@ -32,6 +32,7 @@ def main(_):
     with tf.Session() as sess:
         ckpt = tf.train.get_checkpoint_state('MNIST/logs/tf2-6/checkpoint')
         tf.train.Saver().restore(sess, ckpt.model_checkpoint_path)
+        print(ckpt)
         accuracy_test = accuracy.eval(
                     feed_dict={
                         x: mnist.test.images,
