@@ -142,7 +142,7 @@ def main(_):
             best = (best, accuracy_validation)[
                 best <= accuracy_validation]
 
-            saver.save(sess, 'MNIST/logs/tf2-6/checkpoint/model.ckpt', epoch + 1)
+            saver.save(sess, 'MNIST/logs/tf2-6/checkpoint/model.ckpt')
 
     # Test trained model
     print("best: %s" % best)
