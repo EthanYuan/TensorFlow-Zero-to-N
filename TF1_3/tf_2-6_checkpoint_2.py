@@ -24,7 +24,7 @@ def main(_):
         W_3 = tf.Variable(tf.random_normal([100, 100]) / tf.sqrt(100.0 / 2))
         b_3 = tf.Variable(tf.random_normal([100]))
         z_3 = tf.matmul(a_2, W_3) + b_3
-        a_3 = tf.nn.relu(z_3)
+        a_3 = tf.nn.relu(z_3, name='a_3')
 
     with tf.name_scope('fc3'):
         W_4 = tf.Variable(tf.random_normal([100, 10]) / tf.sqrt(100.0))

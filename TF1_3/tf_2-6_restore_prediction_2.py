@@ -15,18 +15,26 @@ def main(_):
 
     with tf.Session() as sess:
         saver = tf.train.import_meta_graph(
-            'MNIST/logs/tf2-6/checkpoint_2/model.ckpt-10.meta')
+            'MNIST/logs/tf2-6/checkpoint_2/model.ckpt-30.meta')
         saver.restore(sess, tf.train.latest_checkpoint(
             'MNIST/logs/tf2-6/checkpoint_2'))
         
         graph = tf.get_default_graph()
+        a_3 = graph.get_tensor_by_name("fc2/a_3:0")
+
+        with tf.name_scope('fc4_2'):
+            W_4 = tf.Variable(tf.random_normal([100, 10]) / tf.sqrt(100.0))
+            b_4 = tf.Variable(tf.random_normal([10]))
+            z_4 = tf.matmul(a_3, W_4) + b_4
+            a_4 = tf.sigmoid(z_4)
+        init_new_vars_op = tf.initialize_variables([W_4, b_4])
+        sess.run(init_new_vars_op)
+
         x = graph.get_tensor_by_name("x:0")
         y_ = graph.get_tensor_by_name("y_:0")
-        print(x)
-        print(sess.run('accuracy/accuracy:0', feed_dict={
+        print(sess.run(a_4, feed_dict={
             x: mnist.test.images,
             y_: mnist.test.labels}))
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
