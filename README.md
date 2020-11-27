@@ -11,7 +11,7 @@
 Github Pages：
 
 - [TensorFlow从0到1](https://github.com/EthanYuan/TensorFlow-Zero-to-N/tree/master/TensorFlow%E4%BB%8E0%E5%88%B0N/TensorFlow%E4%BB%8E0%E5%88%B01) [电梯页面](https://github.com/EthanYuan/TensorFlow-Zero-to-N/blob/master/TensorFlow%E4%BB%8E0%E5%88%B0N/TensorFlow%E4%BB%8E0%E5%88%B01/19-%E5%9B%9E%E9%A1%BE.md)
-- [TensorFlow从1到2](https://github.com/EthanYuan/TensorFlow-Zero-to-N/blob/master/TensorFlow%E4%BB%8E0%E5%88%B0N/TensorFlow%E4%BB%8E1%E5%88%B02/ML-2017-0-%E5%89%8D%E8%A8%80.md)
+- [TensorFlow从1到2](https://github.com/EthanYuan/TensorFlow-Zero-to-N/blob/master/TensorFlow%E4%BB%8E0%E5%88%B0N/TensorFlow%E4%BB%8E1%E5%88%B02/0-%E5%89%8D%E8%A8%80.md)
 
 [简书专题版](http://www.jianshu.com/c/6f0ffe1b0097)
 
